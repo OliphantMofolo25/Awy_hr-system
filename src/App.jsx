@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import NavBar from './NavBar'; 
 import StaffManagement from './StaffManagement';
 import ProcurementManagement from './ProcurementManagement';
@@ -18,18 +18,18 @@ const App = () => {
     };
 
     return (
-        <div>
-        
+        <div style={{ backgroundImage: `url(/images/Background.jpg)`, backgroundSize: 'cover', minHeight: '100vh' }}>
             {isAuthenticated && <NavBar onLogout={handleLogout} />}
             <Routes>
                 <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> 
-                <Route path="/staff-management" element={<StaffManagement />} />
-                <Route path="/procurement-management" element={<ProcurementManagement />} /> 
+                <Route path="/staff-management" element={isAuthenticated ? <StaffManagement /> : <Navigate to="/" />} />
+                <Route path="/procurement-management" element={isAuthenticated ? <ProcurementManagement /> : <Navigate to="/" />} />
+                {/* Fallback route */}
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </div>
     );
 };
-
 
 const Main = () => (
     <Router>
