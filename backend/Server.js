@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const PORT = 5000;
@@ -15,6 +16,11 @@ mongoose.connect('mongodb://localhost:27017/AWY_MANAGEMENT', { useNewUrlParser: 
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
+// Serve .jsx files with the correct MIME type
+app.get('*.jsx', (req, res) => {
+    res.type('application/javascript'); // Set the MIME type
+    res.sendFile(path.join(__dirname, req.path)); // Send the file
+});
 // User Schema
 const UserSchema = new mongoose.Schema({
     username: { type: String, required: true },
