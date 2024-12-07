@@ -18,7 +18,7 @@ const App = () => {
     };
 
     return (
-        <div style={{ backgroundImage: `url(/images/Background.jpg)`, backgroundSize: 'cover', minHeight: '100vh' }}>
+        <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/Background.jpg)`, backgroundSize: 'cover', minHeight: '100vh' }}>
             {isAuthenticated && <NavBar onLogout={handleLogout} />}
             <Routes>
                 <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> 
