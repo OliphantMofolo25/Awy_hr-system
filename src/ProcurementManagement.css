@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+h3 {
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Procurement Management Styles */
+.procurement-management {
+    max-width: 800px; 
+    margin: auto; 
+    background: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* Content Container Styles */
+.content-container {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.add-vehicle-section, .search-vehicles-section {
+    flex: 1; 
+    margin-right: 20px; 
+}
+
+.search-vehicles-section {
+    margin-right: 0; 
+}
+
+/* Input and Select Styles */
+input[type="text"], select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 22px); 
+}
+
+/* Button Styles */
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Edit and Delete Button Styles */
+.edit-button {
+    background-color: #28a745; 
+}
+
+.edit-button:hover {
+    background-color: #218838; 
+}
+
+.delete-button {
+    background-color: #dc3545; 
+}
+
+.delete-button:hover {
+    background-color: #c82333; 
+}
+
+/* List Styles */
+ul {
+    list-style: none;
+    padding: 0;
+    width: 100%; 
+}
+
+li {
+    background: white;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .content-container {
+        flex-direction: column; 
+    }
+    .add-vehicle-section, .search-vehicles-section {
+        margin-right: 0; 
+        margin-bottom: 20px; 
+    }
+    input[type="text"], select {
+        width: calc(100% - 22px); 
+    }
+}
