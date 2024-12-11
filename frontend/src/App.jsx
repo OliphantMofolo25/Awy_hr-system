@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import NavBar from './NavBar'; 
 import StaffManagement from './StaffManagement';
 import ProcurementManagement from './ProcurementManagement';
@@ -18,7 +18,11 @@ const App = () => {
     };
 
     return (
-        <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/Background.jpg)`, backgroundSize: 'cover', minHeight: '100vh' }}>
+        <div style={{ 
+            backgroundImage: `url(${import.meta.env.BASE_URL}images/Background.jpg)`, // Use import.meta.env.BASE_URL
+            backgroundSize: 'cover', 
+            minHeight: '100vh' 
+        }}>
             {isAuthenticated && <NavBar onLogout={handleLogout} />}
             <Routes>
                 <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> 
@@ -31,10 +35,4 @@ const App = () => {
     );
 };
 
-const Main = () => (
-    <Router>
-        <App />
-    </Router>
-);
-
-export default Main;
+export default App;
